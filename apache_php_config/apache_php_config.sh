@@ -13,8 +13,8 @@ function print_color(){
   NC='\033[0m' # No Color
 
   case $1 in
-    "green") COLOR='\033[0;32m' ;;
-    "red") COLOR='\033[0;31m' ;;
+    "green") COLOR='\n\n\033[0;32m' ;;
+    "red") COLOR='\n\033[0;31m' ;;
     "*") COLOR='\033[0m' ;;
   esac
 
@@ -182,6 +182,7 @@ EOF
 
     # Restart Apache2
     sudo systemctl restart apache2
+    print_color "green" "Apache2 Restarted"
 
     # Test for errors
     sudo apache2ctl configtest
